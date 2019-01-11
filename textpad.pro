@@ -26,12 +26,9 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp \
-    fontdialog.cpp
-
+        mainwindow.cpp
 HEADERS += \
-        mainwindow.h \
-    fontdialog.h
+        mainwindow.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

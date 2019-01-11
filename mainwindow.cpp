@@ -1,14 +1,14 @@
-#include "fontdialog.h"
 #include "mainwindow.h"
 
-#include <QMenuBar>
 #include <QContextMenuEvent>
 #include <QFileDialog>
+#include <QFontDialog>
+#include <QMenuBar>
+#include <QMessageBox>
 #include <QTextStream>
 #include <QVBoxLayout>
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
-#include <QFontDialog>
 
 MainWindow::MainWindow()
 {
