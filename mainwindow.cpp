@@ -4,7 +4,6 @@
 #include <QMenuBar>
 #include <QContextMenuEvent>
 #include <QFileDialog>
-#include <QMessageBox>
 #include <QTextStream>
 #include <QVBoxLayout>
 #include <QXmlStreamReader>
@@ -13,13 +12,13 @@
 
 MainWindow::MainWindow()
 {
+    resize(300, 300);
+    setMinimumWidth(265);
+
     createLayout();
     loadConfigFile();
     createActions();
     createMenus();
-
-    resize(300, 300);
-    setMinimumWidth(265);
 }
 
 MainWindow::~MainWindow()
@@ -116,10 +115,13 @@ void MainWindow::redo()
 
 void MainWindow::fontChange()
 {
-    FontDialog *fontDialog = new FontDialog(this, &textFont);
-    fontDialog->exec();
-    textEdit->setFont(textFont);
-    saveConfigFile();
+    bool fontok;
+    textFont = QFontDialog::getFont(&fontok);
+    if(fontok)
+    {
+        textEdit->setFont(textFont);
+        saveConfigFile();
+    }
 }
 
 void MainWindow::autoSave()
